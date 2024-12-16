@@ -233,5 +233,19 @@ namespace DACNwfrm1
                 guna2MessageDialog1.Show("Bạn không có quyền truy cập tính năng này!");
             }
         }
+
+        private void btnDiscount_Click(object sender, EventArgs e)
+        {
+            if (MainClass.ROLE == "Admin" || MainClass.ROLE == "Manager")
+            {
+                AddControls(new FrmDiscountView());
+            }
+            else
+            {
+                guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+                guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
+                guna2MessageDialog1.Show("Bạn không có quyền truy cập tính năng này!");
+            }
+        }
     }
 }

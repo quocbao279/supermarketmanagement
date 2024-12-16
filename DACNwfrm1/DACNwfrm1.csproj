@@ -88,6 +88,12 @@
     <Compile Include="Model\FrmCustomerAdd.Designer.cs">
       <DependentUpon>FrmCustomerAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\FrmDiscountAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\FrmDiscountAdd.Designer.cs">
+      <DependentUpon>FrmDiscountAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\FrmProductAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,12 @@
     <Compile Include="Report\FrmPrint.Designer.cs">
       <DependentUpon>FrmPrint.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\rptCustomer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCustomer.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Report\rptProduct.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -134,6 +146,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptStock.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\rptSupplier.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSupplier.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Sample.cs">
@@ -184,6 +202,18 @@
     </Compile>
     <Compile Include="View\FrmDashboard.Designer.cs">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmDiscountView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmDiscountView.Designer.cs">
+      <DependentUpon>FrmDiscountView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmPlat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmPlat.Designer.cs">
+      <DependentUpon>FrmPlat.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FrmProductView.cs">
       <SubType>Form</SubType>
@@ -239,6 +269,9 @@
     <EmbeddedResource Include="Model\FrmCustomerAdd.resx">
       <DependentUpon>FrmCustomerAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Model\FrmDiscountAdd.resx">
+      <DependentUpon>FrmDiscountAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Model\FrmProductAdd.resx">
       <DependentUpon>FrmProductAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -267,6 +300,10 @@
     <EmbeddedResource Include="Report\FrmPrint.resx">
       <DependentUpon>FrmPrint.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\rptCustomer.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCustomer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\rptProduct.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptProduct.cs</LastGenOutput>
@@ -274,6 +311,10 @@
     <EmbeddedResource Include="Report\rptStock.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptStock.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rptSupplier.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSupplier.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Sample.resx">
       <DependentUpon>Sample.cs</DependentUpon>
@@ -295,6 +336,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmDashboard.resx">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmDiscountView.resx">
+      <DependentUpon>FrmDiscountView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmPlat.resx">
+      <DependentUpon>FrmPlat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FrmProductView.resx">
       <DependentUpon>FrmProductView.cs</DependentUpon>
@@ -376,6 +423,8 @@
     <None Include="Resources\icons8-food-receiver-32.png" />
     <None Include="Resources\icons8-truck-48.png" />
     <None Include="Resources\icons8-eye-16.png" />
+    <None Include="Resources\icons8-store-48.png" />
+    <None Include="Resources\icons8-discount-52.png" />
     <Content Include="Resources\Trashcan.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

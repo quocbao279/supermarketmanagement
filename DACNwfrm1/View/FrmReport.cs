@@ -89,5 +89,31 @@ FROM Product";
             frm.crystalReportViewer1.Refresh();
             frm.Show();
         }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            string qry = @"SELECT * FROM Customer ORDER BY cusID DESC";
+            DataTable dt = dTable(qry);
+            FrmPrint frm = new FrmPrint();
+            rptCustomer cr = new rptCustomer();
+
+            cr.SetDataSource(dt);
+            frm.crystalReportViewer1.ReportSource = cr;
+            frm.crystalReportViewer1.Refresh();
+            frm.Show();
+        }
+
+        private void btnSupplier_Click(object sender, EventArgs e)
+        {
+            string qry = @"SELECT * FROM Supplier ORDER BY supID DESC";
+            DataTable dt = dTable(qry);
+            FrmPrint frm = new FrmPrint();
+            rptSupplier cr = new rptSupplier();
+
+            cr.SetDataSource(dt);
+            frm.crystalReportViewer1.ReportSource = cr;
+            frm.crystalReportViewer1.Refresh();
+            frm.Show();
+        }
     }
 }

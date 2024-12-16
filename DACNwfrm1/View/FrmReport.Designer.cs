@@ -107,6 +107,7 @@
             this.btnCustomer.Size = new System.Drawing.Size(140, 50);
             this.btnCustomer.TabIndex = 4;
             this.btnCustomer.Text = "Khách hàng";
+            this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
             // 
             // btnSupplier
             // 
@@ -122,6 +123,7 @@
             this.btnSupplier.Size = new System.Drawing.Size(140, 50);
             this.btnSupplier.TabIndex = 5;
             this.btnSupplier.Text = "Nhà cung cấp";
+            this.btnSupplier.Click += new System.EventHandler(this.btnSupplier_Click);
             // 
             // FrmReport
             // 

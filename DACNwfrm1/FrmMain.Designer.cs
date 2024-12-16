@@ -190,13 +190,15 @@
             this.btnDiscount.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnDiscount.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnDiscount.ForeColor = System.Drawing.Color.White;
+            this.btnDiscount.Image = global::DACNwfrm1.Properties.Resources.icons8_discount_52;
             this.btnDiscount.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnDiscount.ImageOffset = new System.Drawing.Point(10, 0);
+            this.btnDiscount.ImageSize = new System.Drawing.Size(25, 25);
             this.btnDiscount.Location = new System.Drawing.Point(39, 641);
             this.btnDiscount.Name = "btnDiscount";
             this.btnDiscount.Size = new System.Drawing.Size(180, 45);
             this.btnDiscount.TabIndex = 12;
             this.btnDiscount.Text = "Khuyến mãi";
+            this.btnDiscount.Click += new System.EventHandler(this.btnDiscount_Click);
             // 
             // btnPlat
             // 
@@ -214,8 +216,9 @@
             this.btnPlat.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnPlat.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnPlat.ForeColor = System.Drawing.Color.White;
+            this.btnPlat.Image = global::DACNwfrm1.Properties.Resources.icons8_store_48;
             this.btnPlat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnPlat.ImageOffset = new System.Drawing.Point(10, 0);
+            this.btnPlat.ImageSize = new System.Drawing.Size(25, 25);
             this.btnPlat.Location = new System.Drawing.Point(39, 590);
             this.btnPlat.Name = "btnPlat";
             this.btnPlat.Size = new System.Drawing.Size(180, 45);
