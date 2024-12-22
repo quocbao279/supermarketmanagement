@@ -282,6 +282,7 @@
             this.txtcost.TabIndex = 7;
             this.txtcost.Tag = "";
             this.txtcost.TextOffset = new System.Drawing.Point(10, 0);
+            this.txtcost.TextChanged += new System.EventHandler(this.txtcost_TextChanged);
             // 
             // label8
             // 
@@ -383,7 +384,7 @@
             // 
             this.dgvSr.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dgvSr.FillWeight = 70F;
-            this.dgvSr.HeaderText = "Sr #";
+            this.dgvSr.HeaderText = "#";
             this.dgvSr.MinimumWidth = 70;
             this.dgvSr.Name = "dgvSr";
             this.dgvSr.ReadOnly = true;

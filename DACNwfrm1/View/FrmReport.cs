@@ -115,5 +115,35 @@ FROM Product";
             frm.crystalReportViewer1.Refresh();
             frm.Show();
         }
+
+        private void btnSale_Click(object sender, EventArgs e)
+        {
+            string qry = @"SELECT 
+    tm.mdate AS OrderDate,        
+    p.pName AS ProductName,       
+    c.cusName AS CustomerName,    
+    td.qty AS Quantity,           
+    td.price AS UnitPrice,        
+    td.amount AS TotalAmount      
+FROM 
+    tblMian tm
+JOIN 
+    tblDetails td ON tm.MainID = td.dMainID
+JOIN 
+    Product p ON td.productID = p.proID
+JOIN 
+    Customer c ON tm.mSupCusID = c.cusID
+WHERE 
+    tm.mType = 'SAL';             
+";
+
+            FrmPrint frm = new FrmPrint();
+            rptSale cr = new rptSale();
+
+            cr.SetDataSource(dTable(qry));
+            frm.crystalReportViewer1.ReportSource = cr;
+            frm.crystalReportViewer1.Refresh();
+            frm.Show();
+        }
     }
 }

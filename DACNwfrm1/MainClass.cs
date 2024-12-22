@@ -87,7 +87,6 @@ namespace DACNwfrm1
         }
 
         //method for curd operation
-
         public static int SQL(string qry, Hashtable ht)
         {
             int res = 0;

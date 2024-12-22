@@ -142,6 +142,12 @@
       <DependentUpon>rptProduct.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Report\rptSale.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSale.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Report\rptStock.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -308,6 +314,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptProduct.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\rptSale.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSale.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\rptStock.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptStock.cs</LastGenOutput>
@@ -425,6 +435,7 @@
     <None Include="Resources\icons8-eye-16.png" />
     <None Include="Resources\icons8-store-48.png" />
     <None Include="Resources\icons8-discount-52.png" />
+    <None Include="Resources\supermarket-grocery-store-interior-flat-illustration-vector.jpg" />
     <Content Include="Resources\Trashcan.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

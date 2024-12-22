@@ -273,6 +273,16 @@ namespace DACNwfrm1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap supermarket_grocery_store_interior_flat_illustration_vector {
+            get {
+                object obj = ResourceManager.GetObject("supermarket-grocery-store-interior-flat-illustration-vector", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap supermarket_icon {
             get {
                 object obj = ResourceManager.GetObject("supermarket-icon", resourceCulture);

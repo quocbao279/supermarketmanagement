@@ -33,7 +33,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtoutdate = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.txtdetail = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtValue = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -84,7 +84,7 @@
             this.txtname.SelectedText = "";
             this.txtname.Size = new System.Drawing.Size(255, 48);
             this.txtname.TabIndex = 15;
-            this.txtname.Tag = "";
+            this.txtname.Tag = "v";
             this.txtname.TextOffset = new System.Drawing.Point(10, 0);
             // 
             // label4
@@ -124,31 +124,31 @@
             this.txtoutdate.TabIndex = 18;
             this.txtoutdate.Value = new System.DateTime(2024, 11, 6, 22, 9, 19, 222);
             // 
-            // txtdetail
+            // txtValue
             // 
-            this.txtdetail.Animated = true;
-            this.txtdetail.AutoRoundedCorners = true;
-            this.txtdetail.BorderRadius = 23;
-            this.txtdetail.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtdetail.DefaultText = "";
-            this.txtdetail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtdetail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtdetail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtdetail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtdetail.FocusedState.BorderColor = System.Drawing.Color.LimeGreen;
-            this.txtdetail.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtdetail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtdetail.HoverState.BorderColor = System.Drawing.Color.LimeGreen;
-            this.txtdetail.Location = new System.Drawing.Point(335, 224);
-            this.txtdetail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtdetail.Name = "txtdetail";
-            this.txtdetail.PasswordChar = '\0';
-            this.txtdetail.PlaceholderText = "";
-            this.txtdetail.SelectedText = "";
-            this.txtdetail.Size = new System.Drawing.Size(179, 48);
-            this.txtdetail.TabIndex = 19;
-            this.txtdetail.Tag = "";
-            this.txtdetail.TextOffset = new System.Drawing.Point(10, 0);
+            this.txtValue.Animated = true;
+            this.txtValue.AutoRoundedCorners = true;
+            this.txtValue.BorderRadius = 23;
+            this.txtValue.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtValue.DefaultText = "";
+            this.txtValue.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtValue.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtValue.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtValue.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtValue.FocusedState.BorderColor = System.Drawing.Color.LimeGreen;
+            this.txtValue.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtValue.HoverState.BorderColor = System.Drawing.Color.LimeGreen;
+            this.txtValue.Location = new System.Drawing.Point(335, 224);
+            this.txtValue.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtValue.Name = "txtValue";
+            this.txtValue.PasswordChar = '\0';
+            this.txtValue.PlaceholderText = "";
+            this.txtValue.SelectedText = "";
+            this.txtValue.Size = new System.Drawing.Size(179, 48);
+            this.txtValue.TabIndex = 19;
+            this.txtValue.Tag = "";
+            this.txtValue.TextOffset = new System.Drawing.Point(10, 0);
             // 
             // label3
             // 
@@ -174,7 +174,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(614, 450);
             this.Controls.Add(this.txtoutdate);
-            this.Controls.Add(this.txtdetail);
+            this.Controls.Add(this.txtValue);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtondate);
@@ -193,7 +193,7 @@
         public Guna.UI2.WinForms.Guna2TextBox txtname;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        public Guna.UI2.WinForms.Guna2TextBox txtdetail;
+        public Guna.UI2.WinForms.Guna2TextBox txtValue;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         public Guna.UI2.WinForms.Guna2DateTimePicker txtondate;

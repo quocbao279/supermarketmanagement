@@ -92,6 +92,7 @@
             this.btnSale.Size = new System.Drawing.Size(140, 50);
             this.btnSale.TabIndex = 3;
             this.btnSale.Text = "Doanh thu";
+            this.btnSale.Click += new System.EventHandler(this.btnSale_Click);
             // 
             // btnCustomer
             // 

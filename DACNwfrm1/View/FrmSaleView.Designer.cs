@@ -164,7 +164,7 @@
             // dgvAmount
             // 
             this.dgvAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvAmount.HeaderText = "Số lượng đặt";
+            this.dgvAmount.HeaderText = "Tổng tiền";
             this.dgvAmount.MinimumWidth = 100;
             this.dgvAmount.Name = "dgvAmount";
             this.dgvAmount.ReadOnly = true;
@@ -175,7 +175,7 @@
             this.dgvEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dgvEdit.FillWeight = 50F;
             this.dgvEdit.HeaderText = "";
-            this.dgvEdit.Image = global::DACNwfrm1.Properties.Resources.Edit;
+            this.dgvEdit.Image = global::DACNwfrm1.Properties.Resources.icons8_eye_16;
             this.dgvEdit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dgvEdit.MinimumWidth = 50;
             this.dgvEdit.Name = "dgvEdit";

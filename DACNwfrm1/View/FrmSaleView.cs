@@ -50,7 +50,6 @@ namespace DACNwfrm1.View
                             inner join Customer c on c.cusID = m.mSupCusID
                             where m.mType = 'SAL' and cusName like '%" + txtSearch.Text + "%'" +
                            " group by dMainID , mdate , m.mSupCusID,c.cusName ";
-
             MainClass.LoadData(qry, guna2DataGridView1, lb);
         }
 
@@ -61,15 +60,15 @@ namespace DACNwfrm1.View
 
         private void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //update
+            //view
             if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvEdit")
             {
                 FrmSaleAdd frm = new FrmSaleAdd();
                 frm.id = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvid"].Value);
                 frm.cusID = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvCusID"].Value);
-
                 MainClass.BlurBackground(frm);
                 LoadData();
+                
             }
 
             //delete

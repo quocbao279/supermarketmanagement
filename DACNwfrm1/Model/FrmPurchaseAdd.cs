@@ -23,8 +23,8 @@ namespace DACNwfrm1.Model
         private void FrmPurchaseAdd_Load(object sender, EventArgs e)
         {
             txtdate.Value = DateTime.Now;
-            cbProduct.SelectedIndexChanged -= new EventHandler(cbProduct_SelectedIndexChanged);
             //stop before product load from database
+            cbProduct.SelectedIndexChanged -= new EventHandler(cbProduct_SelectedIndexChanged);
             string qry1 = "SELECT proID 'id' , pName 'name' FROM Product;";
             string qry2 = "SELECT supID 'id' , supName 'name' FROM Supplier";
 
@@ -76,7 +76,7 @@ namespace DACNwfrm1.Model
 
             if (dt.Rows.Count > 0)
             {
-                txtcost.Text = dt.Rows[0]["pCost"].ToString();
+                txtcost.Text = dt.Rows[0]["pPrice"].ToString();
                 Calculate();
             }
         }
@@ -200,13 +200,13 @@ namespace DACNwfrm1.Model
 
                 if (did == 0) //insert
                 {
-                    qry2 = @"Insert into tblDetails Values(@mID,@proID,@qty,@price,@amount,@cost)";
+                    qry2 = @"Insert into tblDetails Values(@mID,@proID,@qty,@price,@amount,@cost)"; //@cost
                 }
                 else
                 {
                     qry2 = @"Update tblDetails Set dMainID = @mID, productID = @proID,
-                            qty= @qty, price = @price,amount = @amount ,cost = @cost
-                            where detailID = @id";
+                            qty= @qty, price = @price,amount = @amount, cost = @cost      
+                            where detailID = @id"; 
                 }
 
                 SqlCommand cmd2 = new SqlCommand(qry2, MainClass.con);
@@ -263,6 +263,11 @@ namespace DACNwfrm1.Model
                 //0 for serial and id
                 guna2DataGridView1.Rows.Add(0, did, pid, pname, qty, cost, amt);
             }
+        }
+
+        private void txtcost_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -28,19 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbCustomer = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtbarcode = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtdate = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.lbltotal = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.txtsearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.btnClear = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbDiscount = new Guna.UI2.WinForms.Guna2ComboBox();
             this.dgvid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvproid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,11 +56,6 @@
             this.dgvcost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.dgvDel = new System.Windows.Forms.DataGridViewImageColumn();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.txtsearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.btnClear = new Guna.UI2.WinForms.Guna2Button();
-            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -72,7 +73,7 @@
             this.cbCustomer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cbCustomer.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.cbCustomer.ItemHeight = 30;
-            this.cbCustomer.Location = new System.Drawing.Point(240, 46);
+            this.cbCustomer.Location = new System.Drawing.Point(42, 43);
             this.cbCustomer.Name = "cbCustomer";
             this.cbCustomer.Size = new System.Drawing.Size(229, 36);
             this.cbCustomer.TabIndex = 1;
@@ -81,7 +82,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(252, 20);
+            this.label3.Location = new System.Drawing.Point(38, 17);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 23);
             this.label3.TabIndex = 8;
@@ -102,13 +103,13 @@
             this.txtbarcode.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtbarcode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtbarcode.HoverState.BorderColor = System.Drawing.Color.LimeGreen;
-            this.txtbarcode.Location = new System.Drawing.Point(524, 46);
+            this.txtbarcode.Location = new System.Drawing.Point(304, 43);
             this.txtbarcode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtbarcode.Name = "txtbarcode";
             this.txtbarcode.PasswordChar = '\0';
             this.txtbarcode.PlaceholderText = "";
             this.txtbarcode.SelectedText = "";
-            this.txtbarcode.Size = new System.Drawing.Size(229, 36);
+            this.txtbarcode.Size = new System.Drawing.Size(192, 36);
             this.txtbarcode.TabIndex = 2;
             this.txtbarcode.Tag = "";
             this.txtbarcode.TextOffset = new System.Drawing.Point(10, 0);
@@ -117,7 +118,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(520, 18);
+            this.label2.Location = new System.Drawing.Point(300, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 23);
             this.label2.TabIndex = 9;
@@ -133,22 +134,13 @@
             this.txtdate.FillColor = System.Drawing.Color.White;
             this.txtdate.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtdate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtdate.Location = new System.Drawing.Point(42, 46);
+            this.txtdate.Location = new System.Drawing.Point(822, 12);
             this.txtdate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.txtdate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.txtdate.Name = "txtdate";
             this.txtdate.Size = new System.Drawing.Size(177, 36);
             this.txtdate.TabIndex = 0;
             this.txtdate.Value = new System.DateTime(2024, 11, 6, 22, 9, 19, 222);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 23);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Ngày lập";
             // 
             // guna2Panel1
             // 
@@ -172,7 +164,7 @@
             this.lbltotal.Size = new System.Drawing.Size(205, 32);
             this.lbltotal.TabIndex = 1;
             this.lbltotal.Text = "0,000";
-            this.lbltotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbltotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label4
             // 
@@ -190,18 +182,18 @@
             // 
             this.guna2DataGridView1.AllowUserToAddRows = false;
             this.guna2DataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.guna2DataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.guna2DataGridView1.ColumnHeadersHeight = 35;
             this.guna2DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.guna2DataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -214,14 +206,14 @@
             this.dgvcost,
             this.dgvEdit,
             this.dgvDel});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.Location = new System.Drawing.Point(822, 122);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
@@ -253,95 +245,6 @@
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.guna2DataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellClick);
-            // 
-            // dgvid
-            // 
-            this.dgvid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvid.HeaderText = "Id";
-            this.dgvid.MinimumWidth = 6;
-            this.dgvid.Name = "dgvid";
-            this.dgvid.ReadOnly = true;
-            this.dgvid.Visible = false;
-            this.dgvid.Width = 70;
-            // 
-            // dgvproid
-            // 
-            this.dgvproid.HeaderText = "proid";
-            this.dgvproid.MinimumWidth = 6;
-            this.dgvproid.Name = "dgvproid";
-            this.dgvproid.ReadOnly = true;
-            this.dgvproid.Visible = false;
-            // 
-            // dgvProduct
-            // 
-            this.dgvProduct.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgvProduct.HeaderText = "Sản phẩm";
-            this.dgvProduct.MinimumWidth = 100;
-            this.dgvProduct.Name = "dgvProduct";
-            this.dgvProduct.ReadOnly = true;
-            // 
-            // dgvqty
-            // 
-            this.dgvqty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvqty.FillWeight = 50F;
-            this.dgvqty.HeaderText = "Số lượng";
-            this.dgvqty.MinimumWidth = 100;
-            this.dgvqty.Name = "dgvqty";
-            this.dgvqty.ReadOnly = true;
-            this.dgvqty.Width = 125;
-            // 
-            // dgvprice
-            // 
-            this.dgvprice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvprice.FillWeight = 70F;
-            this.dgvprice.HeaderText = "Giá";
-            this.dgvprice.MinimumWidth = 70;
-            this.dgvprice.Name = "dgvprice";
-            this.dgvprice.ReadOnly = true;
-            this.dgvprice.Width = 70;
-            // 
-            // dgvamount
-            // 
-            this.dgvamount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvamount.FillWeight = 70F;
-            this.dgvamount.HeaderText = "Tổng ";
-            this.dgvamount.MinimumWidth = 70;
-            this.dgvamount.Name = "dgvamount";
-            this.dgvamount.ReadOnly = true;
-            this.dgvamount.Width = 70;
-            // 
-            // dgvcost
-            // 
-            this.dgvcost.HeaderText = "Cost";
-            this.dgvcost.MinimumWidth = 6;
-            this.dgvcost.Name = "dgvcost";
-            this.dgvcost.ReadOnly = true;
-            this.dgvcost.Visible = false;
-            // 
-            // dgvEdit
-            // 
-            this.dgvEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvEdit.FillWeight = 50F;
-            this.dgvEdit.HeaderText = "";
-            this.dgvEdit.Image = global::DACNwfrm1.Properties.Resources.Edit;
-            this.dgvEdit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dgvEdit.MinimumWidth = 50;
-            this.dgvEdit.Name = "dgvEdit";
-            this.dgvEdit.ReadOnly = true;
-            this.dgvEdit.Visible = false;
-            this.dgvEdit.Width = 50;
-            // 
-            // dgvDel
-            // 
-            this.dgvDel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvDel.FillWeight = 30F;
-            this.dgvDel.HeaderText = "";
-            this.dgvDel.Image = global::DACNwfrm1.Properties.Resources.Trashcan1;
-            this.dgvDel.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dgvDel.MinimumWidth = 30;
-            this.dgvDel.Name = "dgvDel";
-            this.dgvDel.ReadOnly = true;
-            this.dgvDel.Width = 30;
             // 
             // flowLayoutPanel1
             // 
@@ -376,7 +279,7 @@
             this.txtsearch.PasswordChar = '\0';
             this.txtsearch.PlaceholderText = "tìm kiếm";
             this.txtsearch.SelectedText = "";
-            this.txtsearch.Size = new System.Drawing.Size(384, 47);
+            this.txtsearch.Size = new System.Drawing.Size(360, 47);
             this.txtsearch.TabIndex = 3;
             this.txtsearch.Tag = "";
             this.txtsearch.TextOffset = new System.Drawing.Point(10, 0);
@@ -433,11 +336,131 @@
             this.btnSave.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(520, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(165, 23);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Chương trình ưu đãi";
+            // 
+            // cbDiscount
+            // 
+            this.cbDiscount.AutoRoundedCorners = true;
+            this.cbDiscount.BackColor = System.Drawing.Color.Transparent;
+            this.cbDiscount.BorderRadius = 17;
+            this.cbDiscount.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbDiscount.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDiscount.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.cbDiscount.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.cbDiscount.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbDiscount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cbDiscount.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.cbDiscount.ItemHeight = 30;
+            this.cbDiscount.Location = new System.Drawing.Point(524, 43);
+            this.cbDiscount.Name = "cbDiscount";
+            this.cbDiscount.Size = new System.Drawing.Size(252, 36);
+            this.cbDiscount.TabIndex = 15;
+            this.cbDiscount.Tag = "";
+            this.cbDiscount.SelectedIndexChanged += new System.EventHandler(this.cbDiscount_SelectedIndexChanged);
+            // 
+            // dgvid
+            // 
+            this.dgvid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvid.HeaderText = "Id";
+            this.dgvid.MinimumWidth = 6;
+            this.dgvid.Name = "dgvid";
+            this.dgvid.ReadOnly = true;
+            this.dgvid.Visible = false;
+            this.dgvid.Width = 70;
+            // 
+            // dgvproid
+            // 
+            this.dgvproid.HeaderText = "proid";
+            this.dgvproid.MinimumWidth = 6;
+            this.dgvproid.Name = "dgvproid";
+            this.dgvproid.ReadOnly = true;
+            this.dgvproid.Visible = false;
+            // 
+            // dgvProduct
+            // 
+            this.dgvProduct.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvProduct.HeaderText = "Sản phẩm";
+            this.dgvProduct.MinimumWidth = 100;
+            this.dgvProduct.Name = "dgvProduct";
+            this.dgvProduct.ReadOnly = true;
+            // 
+            // dgvqty
+            // 
+            this.dgvqty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvqty.FillWeight = 70F;
+            this.dgvqty.HeaderText = "Số lượng";
+            this.dgvqty.MinimumWidth = 70;
+            this.dgvqty.Name = "dgvqty";
+            this.dgvqty.ReadOnly = true;
+            this.dgvqty.Width = 70;
+            // 
+            // dgvprice
+            // 
+            this.dgvprice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvprice.FillWeight = 70F;
+            this.dgvprice.HeaderText = "Giá";
+            this.dgvprice.MinimumWidth = 70;
+            this.dgvprice.Name = "dgvprice";
+            this.dgvprice.ReadOnly = true;
+            this.dgvprice.Width = 70;
+            // 
+            // dgvamount
+            // 
+            this.dgvamount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvamount.FillWeight = 70F;
+            this.dgvamount.HeaderText = "Tổng ";
+            this.dgvamount.MinimumWidth = 70;
+            this.dgvamount.Name = "dgvamount";
+            this.dgvamount.ReadOnly = true;
+            this.dgvamount.Width = 70;
+            // 
+            // dgvcost
+            // 
+            this.dgvcost.HeaderText = "Cost";
+            this.dgvcost.MinimumWidth = 6;
+            this.dgvcost.Name = "dgvcost";
+            this.dgvcost.ReadOnly = true;
+            this.dgvcost.Visible = false;
+            // 
+            // dgvEdit
+            // 
+            this.dgvEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvEdit.FillWeight = 50F;
+            this.dgvEdit.HeaderText = "";
+            this.dgvEdit.Image = global::DACNwfrm1.Properties.Resources.Edit;
+            this.dgvEdit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dgvEdit.MinimumWidth = 50;
+            this.dgvEdit.Name = "dgvEdit";
+            this.dgvEdit.ReadOnly = true;
+            this.dgvEdit.Visible = false;
+            this.dgvEdit.Width = 50;
+            // 
+            // dgvDel
+            // 
+            this.dgvDel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvDel.FillWeight = 30F;
+            this.dgvDel.HeaderText = "";
+            this.dgvDel.Image = global::DACNwfrm1.Properties.Resources.Trashcan1;
+            this.dgvDel.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dgvDel.MinimumWidth = 30;
+            this.dgvDel.Name = "dgvDel";
+            this.dgvDel.ReadOnly = true;
+            this.dgvDel.Width = 30;
+            // 
             // FrmSaleAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1224, 577);
+            this.Controls.Add(this.cbDiscount);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.guna2ControlBox1);
@@ -446,7 +469,6 @@
             this.Controls.Add(this.guna2DataGridView1);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.txtdate);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.cbCustomer);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtbarcode);
@@ -470,7 +492,6 @@
         public Guna.UI2.WinForms.Guna2TextBox txtbarcode;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2DateTimePicker txtdate;
-        private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
@@ -478,6 +499,10 @@
         private System.Windows.Forms.Label lbltotal;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        public Guna.UI2.WinForms.Guna2Button btnClear;
+        public Guna.UI2.WinForms.Guna2Button btnSave;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2ComboBox cbDiscount;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvid;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvproid;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvProduct;
@@ -487,7 +512,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvcost;
         private System.Windows.Forms.DataGridViewImageColumn dgvEdit;
         private System.Windows.Forms.DataGridViewImageColumn dgvDel;
-        public Guna.UI2.WinForms.Guna2Button btnClear;
-        public Guna.UI2.WinForms.Guna2Button btnSave;
     }
 }

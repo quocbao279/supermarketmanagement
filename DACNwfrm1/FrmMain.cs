@@ -14,10 +14,7 @@ namespace DACNwfrm1
     public partial class FrmMain : Sample
     {
         static FrmMain _obj;
-        /*   public static FrmMain Instance 
-           {
-               get { if (_obj == null) { _obj = new FrmMain(); } return _obj; } 
-           }*/
+        
         public static FrmMain Instance
         {
             get
@@ -38,13 +35,12 @@ namespace DACNwfrm1
         private void FrmMain_Load(object sender, EventArgs e)
         {
             _obj = this;
-            btnMax.PerformClick();
+            
 
             MainClass.SetRolePermissions(this);
             //lblRole.Text = $"Vai trò: {MainClass.ROLE}";
             lbluser.Text = MainClass.USER;
             guna2CirclePictureBox1.Image = MainClass.img;
-
             btnHome.PerformClick();
         }
 
@@ -75,7 +71,6 @@ namespace DACNwfrm1
 
         private void btnUser_Click(object sender, EventArgs e)
         {
-            
             if (MainClass.ROLE == "Admin")
             {
                 AddControls(new FrmUserView());
@@ -180,17 +175,15 @@ namespace DACNwfrm1
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.YesNo;
-            guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
-            if (guna2MessageDialog1.Show("Bạn có chắc muốn thoát hệ thống?") == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
+            //Application.Exit();
         }
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            if (Application.OpenForms.Count == 0)
+            {
+                Application.Exit(); // Thoát hoàn toàn ứng dụng khi không còn form nào mở
+            }
         }
 
         private void btnStock_Click(object sender, EventArgs e)
@@ -213,16 +206,14 @@ namespace DACNwfrm1
             FormLogin loginForm = new FormLogin();
             loginForm.Show();
 
-            // Hủy bỏ sự kiện FormClosed để tránh thoát toàn bộ ứng dụng
-            this.FormClosed -= FrmMain_FormClosed;
-
             // Đóng form hiện tại
+            //Application.Exit();
             this.Close();
         }
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            if (MainClass.ROLE == "Admin")
+            if (MainClass.ROLE == "Admin" || MainClass.ROLE == "Manager")
             {
                 AddControls(new FrmReport());
             }

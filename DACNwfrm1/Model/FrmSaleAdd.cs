@@ -22,16 +22,24 @@ namespace DACNwfrm1.Model
 
         public int id = 0;
         public int cusID = 0;
+        public int disID = 0;
 
         private void FrmSaleAdd_Load(object sender, EventArgs e)
         {
             string qry = @"Select cusID 'id' , cusName 'name' from Customer";
             MainClass.CBFill(qry, cbCustomer);
+            qry = @"Select disID 'id' , disName 'name' from Discount";
+            MainClass.CBFill(qry, cbDiscount);
             txtdate.Value = DateTime.Now;
 
             if (cusID > 0)
             {
                 cbCustomer.SelectedValue = cusID;
+                LoadForEdit();
+                
+            }
+            if (disID > 0) {
+                cbDiscount.SelectedValue = disID;
                 LoadForEdit();
                 GrandTotal();
             }
@@ -48,7 +56,6 @@ namespace DACNwfrm1.Model
                 PCost = cost,
                 id = Convert.ToInt32(id)
             };
-
             flowLayoutPanel1.Controls.Add(w);
 
             w.onSelect += (ss, ee) =>
@@ -59,8 +66,8 @@ namespace DACNwfrm1.Model
                     if (Convert.ToInt32(item.Cells["dgvproid"].Value) == wdg.id)
                     {
                         item.Cells["dgvqty"].Value = int.Parse(item.Cells["dgvqty"].Value.ToString()) + 1;
-                        item.Cells["dgvamount"].Value = int.Parse(item.Cells["dgvqty"].Value.ToString()) *
-                            int.Parse(item.Cells["dgvprice"].Value.ToString());
+                        item.Cells["dgvamount"].Value = Convert.ToInt32(item.Cells["dgvqty"].Value) *
+                                Convert.ToInt32(item.Cells["dgvprice"].Value);
                         GrandTotal();
                         return;
                     }
@@ -74,15 +81,57 @@ namespace DACNwfrm1.Model
 
         private void GrandTotal()
         {
-            double tot = 0;
-            lbltotal.Text = "";
+            double tot = 0; // Tổng tiền sau khi áp dụng khuyến mãi
+
             foreach (DataGridViewRow item in guna2DataGridView1.Rows)
             {
-                tot += double.Parse(item.Cells["dgvamount"].Value.ToString());
+                if (item.Cells["dgvprice"].Value == null || item.Cells["dgvqty"].Value == null)
+                    continue; // Bỏ qua dòng nếu thiếu dữ liệu
+
+                // Giá trị gốc của sản phẩm
+                double originalPrice = double.Parse(item.Cells["dgvprice"].Value.ToString());
+                double quantity = double.Parse(item.Cells["dgvqty"].Value.ToString());
+                double rowAmount = originalPrice * quantity;
+
+                double discount = 0; // Giá trị khuyến mãi được áp dụng cho dòng hiện tại
+
+                if (cbDiscount.SelectedValue != null)
+                {
+                    try
+                    {
+                        // Lấy giá trị khuyến mãi từ bảng Discount
+                        int disID = Convert.ToInt32(cbDiscount.SelectedValue);
+                        string qry = $"SELECT disDetail FROM Discount WHERE disID = {disID}";
+                        using (SqlCommand cmd = new SqlCommand(qry, MainClass.con))
+                        {
+                            using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                            {
+                                DataTable dt = new DataTable();
+                                da.Fill(dt);
+
+                                if (dt.Rows.Count > 0)
+                                {
+                                    double discountValue = Convert.ToDouble(dt.Rows[0]["disDetail"]); // Khuyến mãi (%)
+                                    discount = (originalPrice * discountValue / 100) * quantity; // Tổng giảm giá
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Lỗi khi lấy dữ liệu giảm giá: {ex.Message}");
+                    }
+                }
+
+                double discountedPrice = rowAmount - discount; // Giá trị sau khi trừ khuyến mãi
+                item.Cells["dgvamount"].Value = discountedPrice; // Cập nhật giá trị hiển thị trong cột dgvamount
+                tot += discountedPrice; // Cộng tổng tiền
             }
 
-            lbltotal.Text = tot.ToString("N2");
+            // Cập nhật tổng tiền vào nhãn lbltotal với đơn vị VND
+            lbltotal.Text = tot.ToString("N0") + " VND";
         }
+
 
         private void LoadProductsFromDatabase()
         {
@@ -124,6 +173,8 @@ namespace DACNwfrm1.Model
             txtdate.Value = DateTime.Now;
             cbCustomer.SelectedIndex = 0;
             cbCustomer.SelectedIndex = -1;
+            cbDiscount.SelectedIndex = 0;
+            cbDiscount.SelectedIndex = -1;
             lbltotal.Text = "0,000";
         }
 
@@ -161,7 +212,6 @@ namespace DACNwfrm1.Model
                             return;
                         }
                     }
-
                     guna2DataGridView1.Rows.Add(new object[] { 0, row["proID"].ToString()
                             , row["pName"].ToString(), 1, row["pPrice"].ToString(),
                             row["pPrice"].ToString(), row["pCost"].ToString() });
@@ -170,6 +220,7 @@ namespace DACNwfrm1.Model
             }
         }
 
+        
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (MainClass.Validation(this) == false)
@@ -179,7 +230,6 @@ namespace DACNwfrm1.Model
                 guna2MessageDialog1.Show("Đã có lỗi!");
                 return;
             }
-
             string qry1 = ""; //for main table
             string qry2 = ""; //for details table
             int record = 0;
@@ -218,7 +268,8 @@ namespace DACNwfrm1.Model
 
                 if (did == 0) //insert
                 {
-                    qry2 = @"Insert into tblDetails Values(@mID,@proID,@qty,@price,@amount,@cost)";
+                    qry2 = @"Insert into tblDetails (dMainID, productID, qty, price, amount, cost) 
+VALUES (@mID, @proID, @qty, @price, @amount, @cost)";
                 }
                 else
                 {
@@ -232,8 +283,8 @@ namespace DACNwfrm1.Model
                 cmd2.Parameters.AddWithValue("@mID", id);
                 cmd2.Parameters.AddWithValue("@proID", Convert.ToInt32(row.Cells["dgvproid"].Value));
                 cmd2.Parameters.AddWithValue("@qty", Convert.ToInt32(row.Cells["dgvqty"].Value));
-                cmd2.Parameters.AddWithValue("@price", Convert.ToInt32(row.Cells["dgvcost"].Value));
-                cmd2.Parameters.AddWithValue("@amount", Convert.ToInt32(row.Cells["dgvamount"].Value));
+                cmd2.Parameters.AddWithValue("@price", Convert.ToInt32(row.Cells["dgvprice"].Value));
+                cmd2.Parameters.AddWithValue("@amount", Convert.ToInt32(row.Cells["dgvamount"].Value)); 
                 cmd2.Parameters.AddWithValue("@cost", Convert.ToInt32(row.Cells["dgvcost"].Value));
                 record += cmd2.ExecuteNonQuery();
 
@@ -246,12 +297,16 @@ namespace DACNwfrm1.Model
 
                 id = 0;
                 cusID = 0;
+                disID = 0;
                 txtdate.Value = DateTime.Now;
                 cbCustomer.SelectedIndex = 0;
                 cbCustomer.SelectedIndex = -1;
+                cbDiscount.SelectedIndex = 0;
+                cbDiscount.SelectedIndex = -1;
                 guna2DataGridView1.Rows.Clear();
                 lbltotal.Text = "0,000";
             }
+
         }
 
         private void LoadForEdit()
@@ -277,45 +332,46 @@ namespace DACNwfrm1.Model
                 qty = row["qty"].ToString();
                 cost = row["price"].ToString();
                 amt = row["amount"].ToString();
-                cost = row["cost"].ToString();
+                //cost = row["cost"].ToString();
 
                 //0 for serial and id
                 guna2DataGridView1.Rows.Add(did, pid, pname, qty, cost, amt, cost);
             }
         }
 
+
+
         private void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //delete
-            if (guna2DataGridView1.CurrentCell?.OwningColumn.Name == "dgvDel")
+            if (guna2DataGridView1.CurrentCell?.OwningColumn?.Name == "dgvDel")
             {
-                //confirm delete
-                guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.YesNo;
-                guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
-
                 if (guna2DataGridView1.CurrentRow != null)
                 {
-                    int rowindex = guna2DataGridView1.CurrentCell.RowIndex;
-                    guna2DataGridView1.Rows.RemoveAt(rowindex);
-
-                    int id = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvid"].Value);
-                    string qry = $"DELETE FROM tblMian WHERE MainID = {id}";
-                    string qry2 = $"DELETE FROM tblDetails WHERE dMainID = {id}";
-                    Hashtable ht = new Hashtable();
-                    MainClass.SQL(qry, ht);
-
-                    if (MainClass.SQL(qry2, ht) > 0)
+                    try
                     {
+                        int id = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvid"].Value);
+                        guna2DataGridView1.Rows.Remove(guna2DataGridView1.CurrentRow);
 
+                        string qry = $"DELETE FROM tblMian WHERE MainID = {id}";
+                        string qry2 = $"DELETE FROM tblDetails WHERE dMainID = {id}";
+                        Hashtable ht = new Hashtable();
+                        MainClass.SQL(qry, ht);
+                        MainClass.SQL(qry2, ht);
+
+                        GrandTotal();
                     }
-                    GrandTotal();
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi khi xoá: " + ex.Message);
+                    }
                 }
                 else
                 {
-                    // Handle the case where the current row is null (e.g., display an error or log it)
-                    MessageBox.Show("No row selected.");
+                    MessageBox.Show("Không dòng nào được chọn.");
                 }
             }
+
         }
 
         private void txtdate_ValueChanged(object sender, EventArgs e)
@@ -323,6 +379,10 @@ namespace DACNwfrm1.Model
 
         }
 
+        private void cbDiscount_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GrandTotal();
+        }
     }
 }
 

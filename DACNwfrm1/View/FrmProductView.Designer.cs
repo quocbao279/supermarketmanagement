@@ -48,8 +48,8 @@
             // 
             // label1
             // 
-            this.label1.Size = new System.Drawing.Size(230, 29);
-            this.label1.Text = "Danh sách hàng hoá";
+            this.label1.Size = new System.Drawing.Size(239, 29);
+            this.label1.Text = "Danh sách Sản phẩm";
             // 
             // guna2DataGridView1
             // 

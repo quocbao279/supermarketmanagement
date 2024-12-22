@@ -56,7 +56,7 @@ namespace DACNwfrm1.Model
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Error: {ex.Message}", "Dữ liệu lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {

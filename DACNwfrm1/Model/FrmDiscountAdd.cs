@@ -46,23 +46,24 @@ namespace DACNwfrm1.Model
                 string qry = "";
                 if (id == 0)
                 {
-                    qry = @"Insert into Discount values(@name,@detail,@ondate,@outdate)";
+                    qry = @"INSERT INTO Discount (disName, disDetail, disOndate, disOutdate)
+                    VALUES (@name, @detail, @ondate, @outdate)";
                 }
                 else
                 {
-                    qry = @"UPDATE Discount set disName =@name,
-                    disDetail = @detail,
-                    disOndate = @ondate,
-                    disOutdate = @@outdate
-                    where disID = @id";
+                    qry = @"UPDATE Discount SET disName = @name,
+                                         disDetail = @detail,
+                                         disOndate = @ondate,
+                                         disOutdate = @outdate
+                     WHERE disID = @id";
                 }
 
                 Hashtable ht = new Hashtable();
                 ht.Add("@id", id);
                 ht.Add("@name", txtname.Text);
-                ht.Add("@detail", txtdetail.Text);
-                ht.Add("@ondate", txtondate.Text);
-                ht.Add("@outdate", txtoutdate.Text);
+                ht.Add("@detail", txtValue.Text);
+                ht.Add("@ondate", txtondate.Value); 
+                ht.Add("@outdate", txtoutdate.Value);
 
                 if (MainClass.SQL(qry, ht) > 0)
                 {
@@ -70,10 +71,10 @@ namespace DACNwfrm1.Model
                     guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
                     guna2MessageDialog1.Show("Lưu dữ liệu thành công");
                     id = 0;
-                    txtname.Text = "";
-                    txtdetail.Text = "";
-                    txtondate.Text = "";
-                    txtoutdate.Text = "";
+                    txtname.Clear();
+                    txtValue.Clear();
+                    txtondate.Value = DateTime.Now;
+                    txtoutdate.Value = DateTime.Now;
                     txtname.Focus();
                 }
             }

@@ -44,9 +44,8 @@ namespace DACNwfrm1.View
             lb.Items.Add(dgvondate);
             lb.Items.Add(dgvoutdate);
 
-
-            string qry = @"SELECT * FROM Discount
-                             WHERE disName LIKE '%" + txtSearch.Text + "%' ORDER BY disID DESC";
+            string qry = @"SELECT * FROM Discount 
+                   WHERE disName LIKE '%" + txtSearch.Text + "%' ORDER BY disID DESC";
             MainClass.LoadData(qry, guna2DataGridView1, lb);
         }
 
@@ -58,7 +57,7 @@ namespace DACNwfrm1.View
                 FrmDiscountAdd frm = new FrmDiscountAdd();
                 frm.id = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvid"].Value);
                 frm.txtname.Text = Convert.ToString(guna2DataGridView1.CurrentRow.Cells["dgvname"].Value);
-                frm.txtdetail.Text = Convert.ToString(guna2DataGridView1.CurrentRow.Cells["dgvexclu"].Value);
+                frm.txtValue.Text = Convert.ToString(guna2DataGridView1.CurrentRow.Cells["dgvexclu"].Value);
                 frm.txtondate.Text = Convert.ToString(guna2DataGridView1.CurrentRow.Cells["dgvondate"].Value);
                 frm.txtoutdate.Text = Convert.ToString(guna2DataGridView1.CurrentRow.Cells["dgvoutdate"].Value);
                 MainClass.BlurBackground(frm);
@@ -68,19 +67,20 @@ namespace DACNwfrm1.View
             //delete
             if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvDel")
             {
-                //confirm delete
                 guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.YesNo;
                 guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
                 if (guna2MessageDialog1.Show("Bạn có chắc muốn xoá dòng này?") == DialogResult.Yes)
                 {
                     int id = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvid"].Value);
-                    string qry = "Delete from Discount where disID = " + id + "";
+                    string qry = "DELETE FROM Discount WHERE disID = @id";
                     Hashtable ht = new Hashtable();
+                    ht.Add("@id", id);
+
                     if (MainClass.SQL(qry, ht) > 0)
                     {
                         guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
                         guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
-                        guna2MessageDialog1.Show("xoá thành công..");
+                        guna2MessageDialog1.Show("Xoá thành công.");
                         LoadData();
                     }
                 }
