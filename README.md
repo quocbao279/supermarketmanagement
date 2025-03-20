@@ -14,9 +14,11 @@ Chức năng chính:
 - Báo cáo số lượng, doanh thu,...
 
 Trang đăng nhập:
+
 ![image](https://github.com/user-attachments/assets/1dd62794-7661-41cf-a341-4cb240d4ae51)
 
 
 Trang chủ:
+
 ![image](https://github.com/user-attachments/assets/db715a58-3c80-4540-adec-3b5ef2ba82cb)
 
